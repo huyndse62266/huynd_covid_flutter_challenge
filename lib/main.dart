@@ -17,9 +17,12 @@ class MyApp extends StatelessWidget {
         textTheme: TextTheme(
           headline1: GoogleFonts.roboto(
             textStyle:  TextStyle(
-              fontWeight: FontWeight.bold
+              color: Colors.black,
+              fontSize: 15,
+              fontWeight: FontWeight.bold,
+
             )
-          )
+          ),
         ),
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),

@@ -1,6 +1,7 @@
 import 'package:flag/flag.dart';
 import 'package:flutter/material.dart';
 import 'package:huyndcovidflutterchallenge/models/country_model.dart';
+import 'package:intl/intl.dart';
 
 class CountriesData extends StatelessWidget {
   final List<CountryModel> countriesData;
@@ -9,36 +10,43 @@ class CountriesData extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final deviceSize = MediaQuery.of(context).size;
     return DataTable(
       columnSpacing: 0,
-      columns: const <DataColumn>[
+      columns: <DataColumn>[
         DataColumn(
-          label: Text(
-            "Country",
-            textAlign: TextAlign.center,
+          label: Expanded(
+            child: Text(
+              "Countries",
+              style: Theme.of(context).textTheme.headline1,
+              textAlign: TextAlign.left,
+            ),
           ),
         ),
         DataColumn(
-            label: Text(
-              "Total cases",
-              style: TextStyle(
-
+            label: Expanded(
+              child: Text(
+                "Total cases",
+                style: Theme.of(context).textTheme.headline1,
+                textAlign: TextAlign.right,
               ),
             )
         ),
         DataColumn(
-            label: Text(
-              "Recovered",
-              style: TextStyle(
-
+            label: Expanded(
+              child: Text(
+                "Recovered",
+                style: Theme.of(context).textTheme.headline1,
+                textAlign: TextAlign.right,
               ),
             )
         ),
         DataColumn(
-            label: Text(
-              "Deaths",
-              style: TextStyle(
-
+            label: Expanded(
+              child: Text(
+                "Deaths",
+                style: Theme.of(context).textTheme.headline1,
+                textAlign: TextAlign.right,
               ),
             )
         ),
@@ -49,33 +57,89 @@ class CountriesData extends StatelessWidget {
             DataCell(
                 Row(
                   children: <Widget>[
-                    Flag(data.countryCode, height: 20, width: 50),
-                    Text(data.country),
+                    Flag(
+                        data.countryCode,
+                        height: 15,
+                        width: 25
+                    ),
+                    Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 2),
+                    ),
+                    Text(
+                      data.country,
+                      style: TextStyle(
+                        fontSize: 12
+                      ),
+                      overflow: TextOverflow.ellipsis,
+                    ),
                   ],
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.center,
                 )
             ),
             DataCell(
-                Text(
-                  data.totalConfirmed.toString(),
-                  textAlign: TextAlign.right,
+                Container(
+                  width: double.infinity,
+                  child: Text(
+                    NumberFormat.decimalPattern().format(data.totalConfirmed),
+                    textAlign: TextAlign.right,
+                  ),
                 )
             ),
             DataCell(
-                Text(
-                  data.totalRecovered.toString(),
-                  textAlign: TextAlign.right,
+                Container(
+                  width: double.infinity,
+                  child: Text(
+                    NumberFormat.decimalPattern().format(data.totalRecovered),
+                    textAlign: TextAlign.right,
+                  ),
                 )
             ),
             DataCell(
-                Text(
-                  data.totalDeaths.toString(),
-                  textAlign: TextAlign.right,
+                Container(
+                  width: double.infinity,
+                  child: Text(
+                    NumberFormat.decimalPattern().format(data.totalDeaths),
+                    textAlign: TextAlign.right,
+                  ),
                 )
             ),
           ]
       ))).toList()
+//        rows:  <DataRow>[
+//          DataRow(
+//            cells: <DataCell>[
+//              DataCell(Text('Sarah')),
+//              DataCell(
+//                  Container(
+//                    width: double.infinity,
+//                    child: Text(
+//                      '19',
+//                      textAlign: TextAlign.right,
+//                    ),
+//                  )
+//              ),
+//              DataCell(
+//                  Container(
+//                    width: double.infinity,
+//                    child: Text(
+//                      '19',
+//                      textAlign: TextAlign.right,
+//                    ),
+//                  )
+//              ),
+//              DataCell(
+//                  Container(
+//                    width: double.infinity,
+//                    child: Text(
+//                      '19',
+//                      textAlign: TextAlign.right,
+//                    ),
+//                  )
+//              ),
+//            ],
+//          ),
+//        ]
     );
   }
 }
