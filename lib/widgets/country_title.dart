@@ -1,7 +1,7 @@
 import 'package:flag/flag.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:huyndcovidflutterchallenge/models/country_model.dart';
+import '../models/country_model.dart';
 import 'package:intl/intl.dart';
 
 class CountryTitle extends StatelessWidget {
@@ -60,7 +60,7 @@ class CountryTitle extends StatelessWidget {
               child: Container(
                 width: double.infinity,
                 child: Text(
-                  NumberFormat.decimalPattern().format(countryModel.totalConfirmed),
+                  NumberFormat.decimalPattern().format(countryModel.totalRecovered),
                   textAlign: TextAlign.right,
                 ),
               )
@@ -70,7 +70,7 @@ class CountryTitle extends StatelessWidget {
               child: Container(
                 width: double.infinity,
                 child: Text(
-                  NumberFormat.decimalPattern().format(countryModel.totalConfirmed),
+                  NumberFormat.decimalPattern().format(countryModel.totalDeaths),
                   textAlign: TextAlign.right,
                 ),
               )

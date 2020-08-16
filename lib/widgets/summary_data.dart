@@ -1,12 +1,9 @@
 import 'package:bubble_tab_indicator/bubble_tab_indicator.dart';
 import 'package:flutter/material.dart';
-import 'package:huyndcovidflutterchallenge/models/summary_model.dart';
-import 'package:huyndcovidflutterchallenge/services/data_service.dart';
-import 'package:huyndcovidflutterchallenge/widgets/summary_charts.dart';
-import 'package:huyndcovidflutterchallenge/widgets/summary_stats.dart';
-import 'package:huyndcovidflutterchallenge/widgets/world_record_title.dart';
-import '../utils/constants.dart' as Constants;
-import '../utils/styles.dart' as Styles;
+import '../models/summary_model.dart';
+import '../widgets/summary_charts.dart';
+import '../widgets/summary_stats.dart';
+
 class SummaryData extends StatefulWidget {
   final SummaryModel summaryModel;
 
@@ -31,28 +28,37 @@ class _SummaryDataState extends State<SummaryData> with TickerProviderStateMixin
     return Container(
       child: Column(
         children: <Widget>[
-          TabBar(
-            controller: _controller,
-            indicator: BubbleTabIndicator(
-              tabBarIndicatorSize: TabBarIndicatorSize.tab,
-              indicatorHeight: 40.0,
-              indicatorColor: Colors.white,
-            )
-            labelStyle: Styles,
-            labelColor: Colors.black,
-            unselectedLabelColor: Colors.white,
-            tabs: <Widget>[
-              Tab(
-                child: Text('Chart'),
+          Container(
+            decoration: BoxDecoration(
+              color: Colors.lightGreen,
+              borderRadius: BorderRadius.circular(25)
+            ),
+            child: TabBar(
+              controller: _controller,
+              indicator: BubbleTabIndicator(
+                tabBarIndicatorSize: TabBarIndicatorSize.tab,
+                indicatorHeight: 40.0,
+                indicatorColor: Colors.white,
               ),
-              Tab(
-                child: Text('Stats'),
-              )
-            ],
+              labelStyle: TextStyle(
+                fontSize: 16.0,
+                fontWeight: FontWeight.w600
+              ),
+              labelColor: Colors.black,
+              unselectedLabelColor: Colors.white,
+              tabs: <Widget>[
+                Tab(
+                  child: Text('Stats'),
+                ),
+                Tab(
+                  child: Text('Chart'),
+                ),
+              ],
+            ),
           ),
           Container(
             width: deviceSize.width,
-            height: deviceSize.height *0.3,
+            height: deviceSize.height *0.35,
             child: TabBarView(
               controller: _controller,
               children: <Widget>[

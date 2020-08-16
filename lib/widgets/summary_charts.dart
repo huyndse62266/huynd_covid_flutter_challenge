@@ -1,8 +1,7 @@
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
-import 'package:huyndcovidflutterchallenge/models/summary_model.dart';
-import 'package:huyndcovidflutterchallenge/widgets/indicator.dart';
-import 'package:huyndcovidflutterchallenge/widgets/summary_data.dart';
+import '../models/summary_model.dart';
+import '../widgets/indicator.dart';
 import '../utils/constants.dart' as Constants;
 
 class SummaryChart extends StatelessWidget {

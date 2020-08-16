@@ -1,9 +1,8 @@
-import 'package:flag/flag.dart';
 import 'package:flutter/material.dart';
-import 'package:huyndcovidflutterchallenge/models/country_model.dart';
-import 'package:huyndcovidflutterchallenge/widgets/country_title.dart';
-import 'package:intl/intl.dart';
-
+import 'package:google_fonts/google_fonts.dart';
+import '../models/country_model.dart';
+import '../widgets/country_title.dart';
+import '../utils/constants.dart' as Constants;
 class CountriesData extends StatelessWidget {
   final List<CountryModel> countriesData;
 
@@ -12,186 +11,76 @@ class CountriesData extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final deviceSize = MediaQuery.of(context).size;
-//    return DataTable(
-//      columnSpacing: 0,
-//      columns: <DataColumn>[
-//        DataColumn(
-//          label: Expanded(
-//            child: Text(
-//              "Countries",
-//              style: Theme.of(context).textTheme.headline1,
-//              textAlign: TextAlign.left,
-//            ),
-//          ),
-//        ),
-//        DataColumn(
-//            label: Expanded(
-//              child: Text(
-//                "Total cases",
-//                style: Theme.of(context).textTheme.headline1,
-//                textAlign: TextAlign.right,
-//              ),
-//            )
-//        ),
-//        DataColumn(
-//            label: Expanded(
-//              child: Text(
-//                "Recovered",
-//                style: Theme.of(context).textTheme.headline1,
-//                textAlign: TextAlign.right,
-//              ),
-//            )
-//        ),
-//        DataColumn(
-//            label: Expanded(
-//              child: Text(
-//                "Deaths",
-//                style: Theme.of(context).textTheme.headline1,
-//                textAlign: TextAlign.right,
-//              ),
-//            )
-//        ),
-//
-//      ],
-//      rows:  countriesData.map(((data) => DataRow(
-//          cells: <DataCell>[
-//            DataCell(
-//                Row(
-//                  children: <Widget>[
-//                    Flag(
-//                        data.countryCode,
-//                        height: 15,
-//                        width: 25
-//                    ),
-//                    Padding(
-//                      padding: EdgeInsets.symmetric(horizontal: 2),
-//                    ),
-//                    Text(
-//                      data.country,
-//                      style: TextStyle(
-//                        fontSize: 12
-//                      ),
-//                      overflow: TextOverflow.ellipsis,
-//                    ),
-//                  ],
-//                  mainAxisAlignment: MainAxisAlignment.start,
-//                  crossAxisAlignment: CrossAxisAlignment.center,
-//                )
-//            ),
-//            DataCell(
-//                Container(
-//                  width: double.infinity,
-//                  child: Text(
-//                    NumberFormat.decimalPattern().format(data.totalConfirmed),
-//                    textAlign: TextAlign.right,
-//                  ),
-//                )
-//            ),
-//            DataCell(
-//                Container(
-//                  width: double.infinity,
-//                  child: Text(
-//                    NumberFormat.decimalPattern().format(data.totalRecovered),
-//                    textAlign: TextAlign.right,
-//                  ),
-//                )
-//            ),
-//            DataCell(
-//                Container(
-//                  width: double.infinity,
-//                  child: Text(
-//                    NumberFormat.decimalPattern().format(data.totalDeaths),
-//                    textAlign: TextAlign.right,
-//                  ),
-//                )
-//            ),
-//          ]
-//      ))).toList()
-////        rows:  <DataRow>[
-////          DataRow(
-////            cells: <DataCell>[
-////              DataCell(Text('Sarah')),
-////              DataCell(
-////                  Container(
-////                    width: double.infinity,
-////                    child: Text(
-////                      '19',
-////                      textAlign: TextAlign.right,
-////                    ),
-////                  )
-////              ),
-////              DataCell(
-////                  Container(
-////                    width: double.infinity,
-////                    child: Text(
-////                      '19',
-////                      textAlign: TextAlign.right,
-////                    ),
-////                  )
-////              ),
-////              DataCell(
-////                  Container(
-////                    width: double.infinity,
-////                    child: Text(
-////                      '19',
-////                      textAlign: TextAlign.right,
-////                    ),
-////                  )
-////              ),
-////            ],
-////          ),
-////        ]
-//    );
+
     return Container(
       child: Column(
         children: <Widget>[
-          Row(
-            children: <Widget>[
-              Expanded(
-                flex: 4,
-                child: Container(
-                  child: Text(
-                    'Coutries',
-                    style: Theme.of(context).textTheme.headline1,
-                    textAlign: TextAlign.left,
+          Padding(
+            padding: EdgeInsets.symmetric(vertical: 10),
+            child: Row(
+              children: <Widget>[
+                Expanded(
+                  flex: 4,
+                  child: Container(
+                    child: Text(
+                      'Coutries',
+                      style: GoogleFonts.roboto(
+                        color: Color(Constants.ACTIVE_COLOR),
+                        fontSize: 15,
+                        fontWeight: FontWeight.bold,
+                      ),
+                      textAlign: TextAlign.left,
+                    ),
                   ),
                 ),
-              ),
-              Expanded(
-                flex: 2,
-                child: Container(
-                  child: Text(
+                Expanded(
+                  flex: 2,
+                  child: Container(
+                    child: Text(
                       'Total cases',
-                      style: Theme.of(context).textTheme.headline1,
+                      style: GoogleFonts.roboto(
+                        color: Colors.black,
+                        fontSize: 15,
+                        fontWeight: FontWeight.bold,
+                      ),
                       textAlign: TextAlign.right,
+                    ),
                   ),
                 ),
-              ),
-              Expanded(
-                flex: 2,
-                child: Container(
-                  child: Text(
+                Expanded(
+                  flex: 2,
+                  child: Container(
+                    child: Text(
                       'Recovered',
-                      style: Theme.of(context).textTheme.headline1,
+                      style: GoogleFonts.roboto(
+                        color: Color(Constants.RECOVERED_COLOR),
+                        fontSize: 15,
+                        fontWeight: FontWeight.bold,
+                      ),
                       textAlign: TextAlign.right,
+                    ),
                   ),
                 ),
-              ),
-              Expanded(
-                flex: 2,
-                child: Container(
-                  child: Text(
+                Expanded(
+                  flex: 2,
+                  child: Container(
+                    child: Text(
                       'Deaths',
-                      style: Theme.of(context).textTheme.headline1,
+                      style: GoogleFonts.roboto(
+                        color: Color(Constants.DEATH_COLOR),
+                        fontSize: 15,
+                        fontWeight: FontWeight.bold,
+                      ),
                       textAlign: TextAlign.right,
+                    ),
                   ),
-                ),
-              )
-            ],
+                )
+              ],
+            ),
           ),
           ListView.builder(
               shrinkWrap: true,
-              itemCount: countriesData.length,
+              itemCount: 10,
               itemBuilder: (context, index) => CountryTitle(countryModel: countriesData[index])
           )
         ],

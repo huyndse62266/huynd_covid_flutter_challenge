@@ -13,7 +13,7 @@ class WorldRecordTitle extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.all(10),
+      margin: EdgeInsets.symmetric(vertical: 10),
       padding: EdgeInsets.symmetric(vertical: 10),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(7),
@@ -21,22 +21,28 @@ class WorldRecordTitle extends StatelessWidget {
       ),
 
       child: ListTile(
-        title: Text(
-          title,
-          style: GoogleFonts.roboto(
-            color: Colors.white,
-            fontSize: 20,
-          ),
-          textAlign: TextAlign.center,
-        ),
-        subtitle: Text(
-            NumberFormat.decimalPattern().format(totalRecord),
+        title: Padding(
+          padding: EdgeInsets.symmetric(vertical: 5),
+          child: Text(
+            title,
             style: GoogleFonts.roboto(
               color: Colors.white,
-              fontWeight: FontWeight.bold,
-              fontSize: 19,
+              fontSize: 20,
             ),
-          textAlign: TextAlign.center,
+            textAlign: TextAlign.center,
+          ),
+        ),
+        subtitle: Padding(
+          padding: EdgeInsets.symmetric(vertical: 5),
+          child: Text(
+              NumberFormat.decimalPattern().format(totalRecord),
+              style: GoogleFonts.roboto(
+                color: Colors.white,
+                fontWeight: FontWeight.bold,
+                fontSize: 19,
+              ),
+            textAlign: TextAlign.center,
+          ),
         )
       ),
     );
