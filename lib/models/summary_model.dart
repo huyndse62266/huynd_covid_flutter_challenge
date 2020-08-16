@@ -5,6 +5,7 @@ class SummaryModel{
   int totalDeaths;
   int newRecovered;
   int totalRecovered;
+  int totalActive;
 
   SummaryModel(
       {this.newConfirmed,
@@ -12,15 +13,17 @@ class SummaryModel{
         this.newDeaths,
         this.totalDeaths,
         this.newRecovered,
-        this.totalRecovered});
+        this.totalRecovered,
+        this.totalActive});
 
   SummaryModel.fromJson(Map<String, dynamic> json) {
     newConfirmed = json['NewConfirmed'];
-    totalConfirmed = json['TotalConfirmed'];
+    totalConfirmed = json['Confirmed'];
     newDeaths = json['NewDeaths'];
-    totalDeaths = json['TotalDeaths'];
+    totalDeaths = json['Deaths'];
     newRecovered = json['NewRecovered'];
-    totalRecovered = json['TotalRecovered'];
+    totalRecovered = json['Recovered'];
+    totalActive = json['Active'];
   }
 
   Map<String, dynamic> toJson() {

@@ -23,16 +23,16 @@ class CountryModel{
         this.date});
 
   CountryModel.fromJson(Map<String, dynamic> json) {
-    country = json['Country'];
-    countryCode = json['CountryCode'];
+    country = json['Country_Region'];
+    countryCode = json['Code'];
     slug = json['Slug'];
     newConfirmed = json['NewConfirmed'];
-    totalConfirmed = json['TotalConfirmed'];
+    totalConfirmed = json['Confirmed'];
     newDeaths = json['NewDeaths'];
-    totalDeaths = json['TotalDeaths'];
+    totalDeaths = json['Deaths'];
     newRecovered = json['NewRecovered'];
-    totalRecovered = json['TotalRecovered'];
-    date = json['Date'];
+    totalRecovered = json['Recovered'];
+    date = json['Last_Update'];
   }
 
   Map<String, dynamic> toJson() {

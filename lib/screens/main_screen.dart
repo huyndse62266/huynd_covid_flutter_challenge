@@ -22,7 +22,12 @@ class MainScreen extends StatelessWidget {
               width: deviceSize.width,
               height: deviceSize.height,
               child: SingleChildScrollView(
-                child: CountriesData(dataSnapshot.data['countries']),
+                child: Column(
+                  children: <Widget>[
+                    SummaryData(dataSnapshot.data['summary']),
+//                    CountriesData(dataSnapshot.data['countries'])
+                  ],
+                ),
               ),
             );
 //            return Container(

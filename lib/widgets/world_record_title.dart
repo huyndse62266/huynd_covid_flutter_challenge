@@ -6,47 +6,38 @@ class WorldRecordTitle extends StatelessWidget {
 
   final String title;
   final int totalRecord;
-  final int newRecord;
+  final Color color;
 
-  WorldRecordTitle(this.title, this.totalRecord, this.newRecord);
+  WorldRecordTitle({this.title, this.totalRecord, this.color});
 
   @override
   Widget build(BuildContext context) {
     return Container(
       margin: EdgeInsets.all(10),
+      padding: EdgeInsets.symmetric(vertical: 10),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(7),
-        color: Colors.white,
+        color: color,
       ),
 
       child: ListTile(
         title: Text(
           title,
           style: GoogleFonts.roboto(
-            color: Colors.black,
-            fontSize: 16,
-          )
-        ),
-        subtitle: RichText(
-          text: TextSpan(
-              children: [
-                TextSpan(
-                    text: NumberFormat.decimalPattern().format(totalRecord),
-                    style: GoogleFonts.roboto(
-                      color: Colors.black,
-                      fontWeight: FontWeight.bold,
-                      fontSize: 15,
-                    )
-                ),
-                TextSpan(
-                    text: newRecord != null ? '(+${NumberFormat.decimalPattern().format(newRecord)})' : '',
-                    style: TextStyle(
-                      color: Colors.deepOrangeAccent
-                    )
-                )
-              ]
+            color: Colors.white,
+            fontSize: 20,
           ),
+          textAlign: TextAlign.center,
         ),
+        subtitle: Text(
+            NumberFormat.decimalPattern().format(totalRecord),
+            style: GoogleFonts.roboto(
+              color: Colors.white,
+              fontWeight: FontWeight.bold,
+              fontSize: 19,
+            ),
+          textAlign: TextAlign.center,
+        )
       ),
     );
   }

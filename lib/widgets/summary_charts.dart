@@ -3,11 +3,12 @@ import 'package:flutter/material.dart';
 import 'package:huyndcovidflutterchallenge/models/summary_model.dart';
 import 'package:huyndcovidflutterchallenge/widgets/indicator.dart';
 import 'package:huyndcovidflutterchallenge/widgets/summary_data.dart';
+import '../utils/constants.dart' as Constants;
 
-class ChartRecord extends StatelessWidget {
+class SummaryChart extends StatelessWidget {
   final SummaryModel summaryModel;
 
-  ChartRecord(this.summaryModel);
+  SummaryChart(this.summaryModel);
 
   @override
   Widget build(BuildContext context) {
@@ -42,7 +43,7 @@ class ChartRecord extends StatelessWidget {
                 Padding(
                   padding: EdgeInsets.symmetric(horizontal: 10, vertical: 5),
                   child: Indicator(
-                    color: Color(0xff4747d1),
+                    color: Color(Constants.ACTIVE_COLOR),
                     text: 'Active',
                     isSquare: true,
                   ),
@@ -50,7 +51,7 @@ class ChartRecord extends StatelessWidget {
                 Padding(
                   padding: EdgeInsets.symmetric(horizontal: 10, vertical: 5),
                   child: Indicator(
-                    color: Color(0xffff751a ),
+                    color: Color(Constants.DEATH_COLOR),
                     text: 'Deaths',
                     isSquare: true,
                   ),
@@ -58,13 +59,16 @@ class ChartRecord extends StatelessWidget {
                 Padding(
                   padding: EdgeInsets.symmetric(horizontal: 10, vertical: 5),
                   child: Indicator(
-                    color: Color(0xff47d147),
+                    color: Color(Constants.RECOVERED_COLOR),
                     text: 'Recovered',
                     isSquare: true,
                   ),
                 ),
               ],
             ),
+            Padding(
+              padding: EdgeInsets.only(bottom: 5),
+            )
           ],
         ),
       ),
@@ -82,7 +86,7 @@ class ChartRecord extends StatelessWidget {
       switch (i) {
         case 0:
           return PieChartSectionData(
-            color: Color(0xff4747d1),
+            color: Color(Constants.ACTIVE_COLOR),
             value: double.parse(activeRate.toString()),
             title: '$activeRate%',
             radius: radius,
@@ -91,7 +95,7 @@ class ChartRecord extends StatelessWidget {
           );
         case 1:
           return PieChartSectionData(
-            color: const Color(0xffff751a),
+            color: const Color(Constants.DEATH_COLOR),
             value: double.parse(deathsRate.toString()),
             title: '$deathsRate%',
             radius: radius,
@@ -100,7 +104,7 @@ class ChartRecord extends StatelessWidget {
           );
         case 2:
           return PieChartSectionData(
-            color: const Color(0xff47d147),
+            color: const Color(Constants.RECOVERED_COLOR),
             value: double.parse(recoveredRate.toString()),
             title: '$recoveredRate%',
             radius: radius,
